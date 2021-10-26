@@ -1,0 +1,626 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>emoji-project</title>
+    <link rel="stylesheet" href="css/all.css">
+  <style>
+      *{margin: 0; padding: 0; box-sizing: border-box;}
+      .lef-bar{width: 7%; height: 696px; background-color: white; border-right: 1px solid silver; float: left;}
+      .lef-bar ul {
+    margin-left: 21px;
+    list-style: none;
+    font-size: 45px;
+     }
+
+     .lef-bar ul li {
+    margin-bottom: 26px;
+     }
+
+    
+    .lef-bar ul li i{color: lightblue;}
+    #clock{color: royalblue;}
+    .search {
+    width: 93%;
+    float: right;
+    height: 80px;
+    background-color: rgba(214, 211, 211, 0.50);
+    border-bottom: 1px solid silver;
+}
+
+.close2{float: right; font-size: 24px;
+    color: silver; margin-top: 5px;}
+
+    .close2:hover{color: tomato; cursor: pointer;}
+
+
+input {
+    margin-left: 108px;
+    width: 76%;
+    height: 52px;
+    border-radius: 10px;
+    padding-left: 20px;
+    margin-top: 13px;
+    font-size: 18px;
+    font-family: -webkit-pictograph;
+    border: 2px solid royalblue;
+    box-shadow: 3px 0px 6px royalblue;
+    }
+
+    .search i {
+    margin-left: -38px;
+    font-size: 24px;
+    color: silver;
+}
+.search i:hover{color: tomato; cursor: pointer;}
+.lef-bar ul li i:hover{color: royalblue; cursor: pointer;}
+
+.clear {
+    width: 93%;
+    height: 50px;
+    background-color: rgba(212, 209, 209, 0.50);
+    float: right;
+    border-bottom: 1px solid silver;
+    cursor: pointer;
+}
+h4:hover{
+    color: orangered;
+    cursor: pointer;
+}
+
+
+
+h4 {
+    float: right;
+    margin-right: 48px;
+    margin-top: 14px;
+    font-size: 21px;
+    font-family: monospace;
+    color: royalblue;
+}
+
+h3 {
+    float: left;
+    margin-left: 36px;
+    margin-top: 12px;
+    font-size: 23px;
+    font-family: monospace;
+    color: rgba(17, 17, 17, 0.70);
+}
+.emoji-1 {
+    float: right;
+    width: 93%;
+    height: 72px;
+    display: none;
+    border-bottom: 1px solid silver;
+}
+.emoji-1 ul li {
+    list-style: none;
+    display: inline;
+    font-size: 30px;
+    margin-left: 24px;
+}
+.emoji-1 ul {
+    margin-top: 18px;
+}
+.people {
+    float: right;
+    width: 93%;
+    height: 45px;
+    background-color: rgba(212, 209, 209, 0.50);
+    border-bottom: 1px solid silver;
+    font-family: system-ui;
+    font-size: 24px;
+    padding-left: 18px;
+    padding-top: 3px;
+    color: rgba(17, 17, 17, 0.80);
+}
+.emoji-cont {
+    
+    font-size: 41px;
+    margin-left: 110px;
+    padding: 5px;
+    cursor: pointer;
+}
+.emoji-category {
+    float: right;
+    width: 92%;
+    height: 448px;
+    background-color: white;
+    position: absolute;
+    left: 95px;
+    top: 177px;
+    display: none;
+}
+button {
+    width: 20%;
+    height: 50px;
+    border-radius: 10px;
+    font-size: 18px;
+    font-family: monospace;
+    margin-left: 41px;
+    margin-top: 13px;
+    border: none;
+    color: white;
+    background-color: coral;
+    cursor: pointer;
+    padding-right: 20px;
+}
+
+button:hover{background-color: black; color: greenyellow;}
+.emoji-3 {
+    text-align: center;
+    margin-left: 12px;
+    margin-top: 12px;
+    display: none;
+    font-size: 44px;
+    cursor: pointer;
+}
+
+.emoji-4 {
+    text-align: center;
+    margin-left: 12px;
+    margin-top: 12px;
+    display: none;
+    font-size: 44px;
+    cursor: pointer;
+}
+
+.emoji-5 {
+    text-align: center;
+    margin-left: 12px;
+    margin-top: 12px;
+    display: none;
+    font-size: 44px;
+    cursor: pointer;
+}
+
+.emoji-6 {
+    text-align: center;
+    margin-left: 12px;
+    margin-top: 12px;
+    display: none;
+    font-size: 44px;
+    cursor: pointer;
+}
+p{display: inline;}
+#same-emoji{text-align: center; font-size: 90px; position: absolute; top: 180px; left: 580px; display: none;}
+
+#get-code {
+    width: 34%;
+    background-color: steelblue;
+    padding: 5px;
+    margin-left: -1px;
+}
+.code{text-align: center; color: yellowgreen; font-size: 30px; margin-top: 200px; font-family: monospace; margin-left: 50px;}
+.copy {
+    border: 1px solid skyblue;
+    border-radius: 50px;
+    background-color: black;
+    display: none;
+    width: 10%;
+    height: 30px;
+    text-align: center;
+    padding-top: 2px;
+    font-family: system-ui;
+    font-size: 15px;
+    margin: auto;
+    margin-top: 5px;
+    cursor: pointer;
+    color: springgreen;
+}
+.copy:hover{color: white; background-color: orangered}
+.copy2{ border: 1px solid skyblue;
+    border-radius: 50px;
+    background-color: black;
+    display: none;
+    width: 10%;
+    height: 30px;
+    text-align: center;
+    padding-top: 2px;
+    font-family: system-ui;
+    font-size: 15px;
+    margin: auto;
+    margin-top: 5px;
+    cursor: pointer;
+    color: springgreen;
+    display: none;}
+    .copy2:hover{color: white; background-color: orangered}
+  </style>
+
+</head>
+<body>
+    
+<div class="lef-bar">
+<ul>
+    <li><i class="fas fa-clock" id="clock"></i></li>
+    <li><i class="fas fa-car"></i></li>
+    <li><i class="fas fa-utensils"></i></li>
+    <li><i class="fas fa-surprise"></i></li>
+    <li><i class="fas fa-tired"></i></li>
+    <li><i class="fas fa-lightbulb"></i></li>
+    <li><i class="fas fa-futbol"></i></li>
+    <li><i class="fas fa-exclamation-triangle"></i></li>
+    <li><i class="fas fa-flag-checkered"></i></li>
+</ul>
+
+</div>
+<div class="search">
+    <input type="text" name="usearch" placeholder="Search emoji category...."><i class="fas fa-window-close close"></i>
+</div>
+<!-- <div class="clear-both"></div> -->
+<div class="clear">
+<h3>Recently used</h3>
+<h4>Clear..</h4>
+
+</div>
+
+<div class="emoji-1">
+    <ul>
+        <li>&#x270C;</li>
+        <li>&#x270D;</li>
+        <li>&#9970;</li>
+        <li>&#9749;</li>
+        <li>&#128517;</li>
+        <li>&#129387;</li>
+        <li>&#128669;</li>
+        <li>&#128521;</li>
+    </ul>
+</div>
+
+
+<div class="people">
+Smileys & people
+</div>
+
+<div class="emoji-2">
+
+    <h2 class="emoji-cont">&#128102;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  &#128103;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	&#128104;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;   &#128105;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  &#128106;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  &#128107;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  &#128108;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  &#128109;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  &#128110;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  &#128112;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	 <br>
+        &#128113;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  &#128114;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  &#128115;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	 &#128116;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	 &#128117;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  &#128118;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  &#128119;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	 &#128120;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  &#128121;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  &#128122;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	  <br>
+        &#128123;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	&#128124;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	&#128125;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;   &#128126;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	 &#128127;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  &#128128;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  &#128129;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  &#128130;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  &#128131;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  &#128134;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;   <br>
+        &#128512;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  &#128513;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  &#128514;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;   &#128515;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  &#128517;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  &#128519;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  &#128521;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	 &#128524;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  &#128525;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  &#128526;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;   <br>
+        &#128530;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  &#128531;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  &#128532;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;   &#128534;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	 &#128536;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  &#128538;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  &#128539;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  &#128540;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  &#128542;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	 &#128545;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+       
+        &#128123;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	&#128124;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	&#128125;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;   &#128126;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	 &#128127;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  &#128128;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  &#128129;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  &#128130;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  &#128131;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  &#128134;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;   <br>
+ 
+        &#128512;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  &#128513;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  &#128514;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;   &#128515;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  &#128517;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  &#128519;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  &#128521;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	 &#128524;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  &#128525;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  &#128526;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;   <br>
+        &#128530;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  &#128531;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  &#128532;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;   &#128534;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	 &#128536;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  &#128538;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  &#128539;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  &#128540;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  &#128542;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	 &#128545;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        &#128113;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  &#128114;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  &#128115;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	 &#128116;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	 &#128117;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  &#128118;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  &#128119;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	 &#128120;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  &#128121;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  &#128122;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	  <br>
+
+
+    
+
+        
+    </h2>
+
+
+
+
+
+</div>
+
+<div class="emoji-category">
+    <i class="fas fa-window-close close2"></i>
+<button class="smiley">&#128540;Smiley</button>
+<button class="angry">&#128544;Angry</button>
+<button class="saddy">&#128532;Saddy</button>
+<button class="shocky">&#128552;Shoking</button>
+
+     <h2 class="emoji-3"><p>&#128522;</p>  <p>&#128523;</p>  <p>&#128538;</p>  <p>&#128536;</p></h2>
+     <h2 class="emoji-4"><p>&#128548;</p>  <p>&#128545;</p>  </h2>
+     <h2 class="emoji-5"><p>&#128546;</p>  <p>&#128557;</p>  </h2>
+     <h2 class="emoji-6"><p>&#128561;</p>  <p>&#128563;</p>  </h2>
+
+       
+      <h2 class="emoji-7" id="same-emoji">&#128522; <button id="get-code">Get Code</button></h2>
+      <h2 class="emoji-8" id="same-emoji">&#128523; <button id="get-code">Get Code</button></h2>
+      <h2 class="emoji-9" id="same-emoji">&#128538; <button id="get-code">Get Code</button></h2>
+      <h2 class="emoji-10" id="same-emoji">&#128536; <button id="get-code">Get Code</button></h2>
+      <h2 class="emoji-11" id="same-emoji">&#128548; <button id="get-code">Get Code</button></h2>
+      <h2 class="emoji-12" id="same-emoji">&#128545; <button id="get-code">Get Code</button></h2>
+      <h2 class="emoji-13" id="same-emoji">&#128546; <button id="get-code">Get Code</button></h2>
+      <h2 class="emoji-14" id="same-emoji">&#128557; <button id="get-code">Get Code</button></h2>
+      <h2 class="emoji-15" id="same-emoji">&#128561; <button id="get-code">Get Code</button></h2>
+      <h2 class="emoji-16" id="same-emoji">&#128563; <button id="get-code">Get Code</button></h2>
+    
+
+       <div class="code">
+           
+       </div>
+       <h2 class="copy">Copy</h2>
+       <h2 class="copy2">Copied</h2>
+
+</div>
+
+
+
+<script src="jquery-3.6.0.min.js"></script>
+<script>
+    $(document).ready(function(){
+        $(".close").click(function(){
+            $("input").val(null);
+        });
+
+        $("h4").click(function(){
+            $(".emoji-1").empty();
+            $(".emoji-1").fadeOut(1000);
+        });
+
+        // $("h3").click(function(){
+        //     $(".emoji-1").slideToggle();
+           
+        // });
+
+
+        $("h3").click(function(){
+            $(".emoji-1").slideToggle();
+            
+            $(".emoji-category").animate({"position":"absolute", "top":"247px"});
+        });
+
+        $("input").keyup(function(event){
+           if(event.keyCode==13){
+               $(".emoji-category").slideDown();
+               $(".emoji-cont").hide();
+           }
+        
+        });
+
+        $(".close2").click(function(){
+            $(".emoji-category").slideUp();
+            $(".emoji-cont").show();
+        })
+
+        $(".smiley").click(function(){
+            $(".emoji-3").show();
+            $(".emoji-4").hide();
+            $(".emoji-5").hide();
+            $(".emoji-6").hide();
+            
+        });
+
+        $(".angry").click(function(){
+            $(".emoji-4").show();
+            $(".emoji-3").hide();
+            $(".emoji-5").hide();
+            $(".emoji-6").hide();
+            
+        });
+
+        $(".saddy").click(function(){
+            $(".emoji-5").show();
+            $(".emoji-4").hide();
+            $(".emoji-3").hide();
+            $(".emoji-6").hide();
+            
+        });
+
+
+        $(".shocky").click(function(){
+            $(".emoji-6").show();
+            $(".emoji-4").hide();
+            $(".emoji-5").hide();
+            $(".emoji-3").hide();
+            
+        });
+
+        $("p").eq(0).click(function(){
+            $(".emoji-7").show();
+            $(".emoji-8").hide();
+            $(".emoji-9").hide();
+            $(".emoji-10").hide();
+            $(".emoji-11").hide();
+            $(".emoji-12").hide();
+            $(".emoji-13").hide();
+            $(".emoji-14").hide();
+            $(".emoji-15").hide();
+            $(".emoji-16").hide();
+            $(".code").text("");
+            $(".copy").hide();
+        });
+
+        $("p").eq(1).click(function(){
+            $(".emoji-8").show();
+            $(".emoji-7").hide();
+            $(".emoji-9").hide();
+            $(".emoji-10").hide();
+            $(".emoji-11").hide();
+            $(".emoji-12").hide();
+            $(".emoji-13").hide();
+            $(".emoji-14").hide();
+            $(".emoji-15").hide();
+            $(".emoji-16").hide();
+            $(".code").text("");
+            $(".copy").hide();
+        });
+
+        $("p").eq(2).click(function(){
+            $(".emoji-9").show();
+            $(".emoji-8").hide();
+            $(".emoji-7").hide();
+            $(".emoji-10").hide();
+            $(".emoji-11").hide();
+            $(".emoji-12").hide();
+            $(".emoji-13").hide();
+            $(".emoji-14").hide();
+            $(".emoji-15").hide();
+            $(".emoji-16").hide();
+            $(".code").text("");
+            $(".copy").hide();
+        });
+
+        $("p").eq(3).click(function(){
+            $(".emoji-10").show();
+            $(".emoji-8").hide();
+            $(".emoji-9").hide();
+            $(".emoji-7").hide();
+            $(".emoji-11").hide();
+            $(".emoji-12").hide();
+            $(".emoji-13").hide();
+            $(".emoji-14").hide();
+            $(".emoji-15").hide();
+            $(".emoji-16").hide();
+            $(".code").text("");
+            $(".copy").hide();
+        });
+
+        $("p").eq(4).click(function(){
+            $(".emoji-11").show();
+            $(".emoji-8").hide();
+            $(".emoji-9").hide();
+            $(".emoji-7").hide();
+            $(".emoji-10").hide();
+            $(".emoji-12").hide();
+            $(".emoji-13").hide();
+            $(".emoji-14").hide();
+            $(".emoji-15").hide();
+            $(".emoji-16").hide();
+            $(".code").text("");
+            $(".copy").hide();
+        });
+
+        $("p").eq(5).click(function(){
+            $(".emoji-12").show();
+            $(".emoji-8").hide();
+            $(".emoji-9").hide();
+            $(".emoji-7").hide();
+            $(".emoji-11").hide();
+            $(".emoji-10").hide();
+            $(".emoji-13").hide();
+            $(".emoji-14").hide();
+            $(".emoji-15").hide();
+            $(".emoji-16").hide();
+            $(".code").text("");
+            $(".copy").hide();
+        });
+
+        $("p").eq(6).click(function(){
+            $(".emoji-13").show();
+            $(".emoji-8").hide();
+            $(".emoji-9").hide();
+            $(".emoji-7").hide();
+            $(".emoji-11").hide();
+            $(".emoji-12").hide();
+            $(".emoji-10").hide();
+            $(".emoji-14").hide();
+            $(".emoji-15").hide();
+            $(".emoji-16").hide();
+            $(".code").text("");
+            $(".copy").hide();
+        });
+
+        $("p").eq(7).click(function(){
+            $(".emoji-14").show();
+            $(".emoji-8").hide();
+            $(".emoji-9").hide();
+            $(".emoji-7").hide();
+            $(".emoji-11").hide();
+            $(".emoji-12").hide();
+            $(".emoji-13").hide();
+            $(".emoji-10").hide();
+            $(".emoji-15").hide();
+            $(".emoji-16").hide();
+            $(".code").text("");
+            $(".copy").hide();
+            
+        });
+
+        $("p").eq(8).click(function(){
+            $(".emoji-15").show();
+            $(".emoji-8").hide();
+            $(".emoji-9").hide();
+            $(".emoji-7").hide();
+            $(".emoji-11").hide();
+            $(".emoji-12").hide();
+            $(".emoji-13").hide();
+            $(".emoji-14").hide();
+            $(".emoji-10").hide();
+            $(".emoji-16").hide();
+            $(".code").text("");
+            $(".copy").hide();
+            
+        });
+
+        $("p").eq(9).click(function(){
+            $(".emoji-16").show();
+            $(".emoji-8").hide();
+            $(".emoji-9").hide();
+            $(".emoji-7").hide();
+            $(".emoji-11").hide();
+            $(".emoji-12").hide();
+            $(".emoji-13").hide();
+            $(".emoji-14").hide();
+            $(".emoji-15").hide();
+            $(".emoji-10").hide();
+            $(".code").text("");
+            $(".copy").hide();
+            
+        });
+
+        $("#same-emoji button").eq(0).click(function(){
+            $(".code").fadeIn().text("&#128522;");
+            $(".copy").slideDown();
+             });
+
+             $("#same-emoji button").eq(1).click(function(){
+            $(".code").fadeIn().text(" &#128523;");
+            $(".copy").slideDown();
+             });
+
+             $("#same-emoji button").eq(2).click(function(){
+            $(".code").fadeIn().text("&#128538;");
+            $(".copy").slideDown();
+             });
+
+             $("#same-emoji button").eq(3).click(function(){
+            $(".code").fadeIn().text("&#128536;");
+            $(".copy").slideDown();
+             });
+
+             $("#same-emoji button").eq(4).click(function(){
+            $(".code").fadeIn().text("&#128548;");
+            $(".copy").slideDown();
+             });
+
+             $("#same-emoji button").eq(5).click(function(){
+            $(".code").fadeIn().text("&#128545;");
+            $(".copy").slideDown();
+             });
+
+             $("#same-emoji button").eq(6).click(function(){
+            $(".code").fadeIn().text("&#128546;");
+            $(".copy").slideDown();
+             });
+
+             $("#same-emoji button").eq(7).click(function(){
+            $(".code").fadeIn().text("&#128557;");
+            $(".copy").slideDown();
+             });
+
+             $("#same-emoji button").eq(8).click(function(){
+            $(".code").fadeIn().text("&#128561;");
+            $(".copy").slideDown();
+             });
+
+             $("#same-emoji button").eq(9).click(function(){
+            $(".code").fadeIn().text("&#128563;");
+            $(".copy").slideDown();
+             });
+
+         $(".copy").click(function(){
+             $(this).hide();
+             $(".copy2").fadeIn();
+             $(".copy2").slideUp(1000);
+             
+             
+         });
+
+
+       
+    });
+</script>
+
+</body>
+</html
